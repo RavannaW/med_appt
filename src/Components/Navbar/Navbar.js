@@ -11,8 +11,11 @@ const Navbar = () => {
     const[email,setEmail]=useState("");
     const [showDropdown, setShowDropdown] = useState(false);
     const handleClick = () => setClick(!click);
-
     
+    const getUserName = () => {
+        return username;
+      };
+
     const handleLogout = () => {
         sessionStorage.removeItem("auth-token");
         sessionStorage.removeItem("name");
@@ -69,15 +72,25 @@ const Navbar = () => {
          <Link to="/reviews">Reviews</Link>
         </li>
         {isLoggedIn?(
-          <>
-            <li className="link">
-              <button className="btn2" onClick={handleLogout}>
-                Logout
-              </button>
-            </li>
-            
-          </>
-        ) : (
+            <>
+              <li className="link welcome-user">
+                {`Welcome, ${getUserName()}`}
+                <ul className='dropdown-menu'>
+                  <li>
+                    <Link to='ProfileCard'>Your Profile</Link>
+                  </li>
+                  <li>
+                    <Link to='ReportsLayout'>Your Reports</Link>
+                  </li>
+                </ul>
+              </li>
+              <li className="link">
+                <button type="button" className="btn2" onClick={handleLogout}>
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
           <>
             <li className="link">
               <Link to="/signup">
