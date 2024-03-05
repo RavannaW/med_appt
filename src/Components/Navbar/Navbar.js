@@ -77,10 +77,10 @@ const Navbar = () => {
                 {`Welcome, ${getUserName()}`}
                 <ul className='dropdown-menu'>
                   <li>
-                    <Link to='ProfileCard'>Your Profile</Link>
+                    <Link to='/profilecard'>Your Profile</Link>
                   </li>
                   <li>
-                    <Link to='ReportsLayout'>Your Reports</Link>
+                    <Link to='/report'>Your Reports</Link>
                   </li>
                 </ul>
               </li>
