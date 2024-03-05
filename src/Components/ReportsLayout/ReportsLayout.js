@@ -2,6 +2,21 @@ import React, { useState } from 'react';
 import './ReportsLayout.css';
 
 export default function ReportsLayout() {  
+    const [report, setReport] = useState("")
+
+  const viewReport = () => {
+    const reportUrl = './patient_report.pdf';
+    window.open(reportUrl, '_blank');
+  };
+
+  const downloadReport = () => {
+    const reportUrl = './patient_report.pdf';
+    const link = document.createElement('a');
+    link.href = reportUrl;
+    link.download = 'patient_report.pdf';
+    link.click();
+  };
+
     return (
       <div className="container">
         <h2>Reports</h2>
@@ -21,10 +36,10 @@ export default function ReportsLayout() {
               <td>Dr. John Doe</td>
               <td>Cardiology</td>
               <td>
-                  <button variant="primary" size='sm'>View Report</button>
+                    <button variant="primary" size='sm' onClick={viewReport}>View Report</button>
               </td>
               <td>
-                  <button variant="primary" size='sm'>Download Report</button>
+                  <button variant="primary" size='sm' onClick={downloadReport}>Download Report</button>
               </td>
             </tr>
             <tr>
