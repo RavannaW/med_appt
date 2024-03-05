@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import StarRatingComponent from 'react-star-rating-component';
+// import StarRatingComponent from 'react-star-rating-component';
 
 function GiveReviews() {
   const [showForm, setShowForm] = useState(false);
@@ -29,6 +29,11 @@ function GiveReviews() {
           setShowWarning(true);
         }
   };
+
+  const handleStarClick = (starIndex) => {
+    setFormData({ ...formData, rating: starIndex + 1 });
+  };
+
   return (
     <div className="container">
       <h2>Form with Message</h2>
@@ -47,11 +52,11 @@ function GiveReviews() {
                   <textarea id="review" name="review" value={formData.review} onChange={handleChange} />
                  </div>
                  <div>
-                 <StarRatingComponent 
+                 {/* <StarRatingComponent 
                     name="rate1" 
-                    starCount={5}
+                    // starCount={5}
                     // onStarClick={this.onStarClick.bind(this)}
-                    />
+                    /> */}
                  </div>
                  <button type="submit">Submit</button>
                </form>
